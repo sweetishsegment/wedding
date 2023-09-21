@@ -223,6 +223,12 @@
             <label for="diet">Dietary restrictions</label>
             <input type="text" name="diet" id="diet" value="" />
           </div>
+
+            <div class="field">
+            <label for="date">Date of RSVP (ex. 9.21.24)</label>
+            <input type="text" name="date" id="date" value="" />
+          </div>
+
           <div class="field">
             <label for="message">Leave a note:</label>
             <textarea name="message" id="message" rows="5"></textarea>
@@ -251,11 +257,11 @@
       .then(response => { 
         btn.disabled = false
         btn.innerHTML = "Submit"
-        alert('Thank you! Your response has been submitted. Look out for our invitation in the snail mail.', response) })
+        alert('Thank you! Your response has been submitted. Look out for our invitation in the snail mail! :)', response) })
       .catch(error => {
        btn.disabled = false
        btn.innerHTML = "Submit"
-       alert('Error!', error.message)})
+       alert('Error! If you continue to run into issues, contact us directly!', error.message)})
     })
   </script>
 
