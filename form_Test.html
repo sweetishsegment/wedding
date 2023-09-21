@@ -1,0 +1,97 @@
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+  <title>RSVP:Sep.21.2024</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+
+  <section class="wrapper style1 align-center">
+    <div class="inner medium" id="rsvp">
+      <h1><b>RSVP<b></h1>
+        <h4>Kindly let us know before 7/21/24</h4>
+      </div>
+
+
+      <form id="form" style="margin: 0 20% 0 20%;">
+        <div class="fields">
+          <div class="field half">
+            <label for="name">Name(s):</label>
+            <input type="text" name="name" id="name" value="" />
+          </div>
+          <div class="field half">
+            <label for="mail">Mailing Address (for invites):</label>
+            <input type="text" name="mail" id="mail" value="" />
+          </div>
+        </div>
+
+        <label for="response">RSVP:</label>
+        <select name="response" id="response">
+          <option value="">-Click dropdown-</option>
+          <option value="1">Yes! Will be there to celebrate</option>
+          <option value="2">Will not be able to attend</option>
+        </select>
+
+        <br>
+        <label for="mail">Please initial the entree of choice: </label>
+        <div class="fields">
+          <div class="field third">
+            <input type="text" id="meat" name="meat" checked />
+            <label for="meat">Meat</label>
+          </div>
+          <div class="field third">
+            <input type="text" id="fish" name="fish" />
+            <label for="fish">Fish</label>
+          </div>
+          <div class="field third">
+            <input type="text" id="vegetarian" name="vegetarian" />
+            <label for="vegetarian">Vegetarian</label>
+          </div>
+
+          <div class="field">
+            <label for="diet">Dietary restrictions</label>
+            <input type="text" name="diet" id="diet" value="" />
+          </div>
+          <div class="field">
+            <label for="message">Leave a note:</label>
+            <textarea name="message" id="message" rows="5"></textarea>
+          </div>
+        </div>
+        <br>
+
+        <button type="submit" id='submit'>Submit</button>
+
+      </form>
+
+    </body>
+
+    <script>
+     const form = document.querySelector("#form")
+     const btn = document.querySelector('#submit')
+     const scriptURL = 'https://script.google.com/macros/s/AKfycbxF3i343Bfh0mZtjJlH9YN_VLcPKJVr-4tDj1Xi8gqTdmwu4_cdufgaYtU-rjOOLecA/exec'
+
+     form.addEventListener('submit', e => {
+      e.preventDefault()
+      btn.disabled = true
+      btn.innerHTML = "Loading..."
+
+      console.log(form)
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => { 
+        btn.disabled = false
+        btn.innerHTML = "Submit"
+        alert('Success!', response) })
+      .catch(error => {
+       btn.disabled = false
+       btn.innerHTML = "Submit"
+       alert('Error!', error.message)})
+    })
+  </script>
+
+  </html>
