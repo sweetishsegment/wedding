@@ -199,8 +199,8 @@
         <label for="response">RSVP:</label>
         <select name="response" id="response">
           <option value="">-Click dropdown-</option>
-          <option value="1">Yes! Will be there to celebrate</option>
-          <option value="2">Will not be able to attend</option>
+          <option value="Yes">Yes! Will be there to celebrate</option>
+          <option value="No">Will not be able to attend</option>
         </select>
 
         <br>
@@ -251,7 +251,7 @@
       .then(response => { 
         btn.disabled = false
         btn.innerHTML = "Submit"
-        alert('Success!', response) })
+        alert('Thank you! Your response has been submitted. Look out for our invitation in the snail mail.', response) })
       .catch(error => {
        btn.disabled = false
        btn.innerHTML = "Submit"
